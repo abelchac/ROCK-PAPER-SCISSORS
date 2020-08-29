@@ -1,38 +1,27 @@
 <!DOCTYPE html>
-<body>
-    <script>
-        const MOVES= ['rock', 'paper', 'scissors'];
-        const MOVESRET= ['Rock', 'Paper', 'Scissors'];
-        function computerPlay() {
-            return MOVES[Math.floor(Math.random() * MOVES.length)];
-        }
+<html>
 
-        function playRound(playerSelection, computerSelection){
-            let player = MOVES.indexOf(playerSelection.toLowerCase());
-            let computer = MOVES.indexOf(computerSelection.toLowerCase());
-            if(player == -1){
-                return "This is bad move";
-            }
-            if((player - computer) == 1 || (player - computer) == -2){
-                return "You Win! " + MOVESRET[player] + " beats " + MOVESRET[computer];
-            } else if ((player - computer == 0)){
-                return "You Tie! " + MOVESRET[player] + " Ties " + MOVESRET[computer];
-            }else { 
-                return "You Lose! " + MOVESRET[computer] + " beats " + MOVESRET[player];
-            }
-        }
 
-        function game() {
-            for(let i = 0; i < 5; i++) {
-                let userSelction = prompt("What is your selection");
-                
-                console.log(playRound(userSelction, computerPlay()));
-            }
-            
-
-        }
-        game();
+<head>
+    <script src="rockpaperscissors.js" defer>
+        
     </script>
-
-
+</head>
+<body>
+   
+    <div>
+        <button id="rock" value="rock">
+            Rock
+        </button>
+        <button id="paper" value="paper">
+            Paper
+        </button>
+        <button id="scissors" value="scissors">
+            Scissors
+        </button>
+    </div>
+    <script>
+    
+    </script>
 </body>
+</html>
