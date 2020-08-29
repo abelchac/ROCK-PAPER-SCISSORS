@@ -2,6 +2,9 @@
 const buttonRock = document.getElementById("rock");
 const buttonPaper = document.getElementById("paper");
 const buttonScissors = document.getElementById("scissors");
+const buttonReset = document.getElementById("reset");
+const windiv = document.getElementById("winner");
+
 const MOVES= ['rock', 'paper', 'scissors'];
 const MOVESRET= ['Rock', 'Paper', 'Scissors'];
 
@@ -44,15 +47,9 @@ function setScore() {
 }
 
 function game() {
+    windiv.innerHTML = playRound(val, computerPlay());
+    val = "";       
     setScore();
-    if(i > 0){
-            console.log(playRound(val, computerPlay()));
-            val = "";       
-
-    } else{
-        console.log("There are no more rounds")
-    } 
-    i--; 
 }
 
 function buttonPress(event) {
@@ -61,8 +58,16 @@ function buttonPress(event) {
     game();
 }
 
+function reset() {
+    humanPoints = 0;
+    compPoints = 0;
+    i = 5;
+    windiv.innerHTML = ""
+    setScore()
+}
+
 setScore();
 buttonRock.addEventListener('click', buttonPress);
 buttonPaper.addEventListener('click', buttonPress);
 buttonScissors.addEventListener('click', buttonPress);	
-
+buttonReset.addEventListener('click', reset);
